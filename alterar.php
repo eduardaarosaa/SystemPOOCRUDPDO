@@ -27,9 +27,9 @@
         $apelido = $_POST['apelido'];
         $endereco = $_POST['endereco'];
 
-        $sql = "update crud SET nome=:nome, apelido=:apelido, endereco=:endereco";
+        $sql = "update crud SET nome=:nome, apelido=:apelido, endereco=:endereco where id=:$id";
         $resultado = $base->prepare($sql);
-        $resultado->execute(array(":myid"=>$id,":nome"=>$nome,":apelido"=>$apelido,":endereco"=>$endereco));
+        $resultado->execute(array(":id"=>$id,":nome"=>$nome,":apelido"=>$apelido,":endereco"=>$endereco));
     
         header("Location:index.php");
     }
